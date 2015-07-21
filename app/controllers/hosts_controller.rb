@@ -35,6 +35,13 @@ class HostsController < ApplicationController
     end
   end
 
+  def destroy
+    @host = Host.find(params[:id])
+    @host.destroy
+
+    redirect_to hosts_path
+  end
+
   private
     def host_params
       params.require(:host).permit(:hostname, :macaddress, :ipaddress)
