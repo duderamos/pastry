@@ -6,4 +6,18 @@ class HostsController < ApplicationController
   def new
     @host = Host.new()
   end
+
+  def create
+    @host = Host.new(host_params)
+    if @host.save
+      redirect_to @host
+    else
+      render 'new'
+    end
+  end
+
+  private
+    def host_params
+      params.require(:host).permit(:hostname, :macaddress, :ipaddress)
+    end
 end

@@ -1,0 +1,7 @@
+%p
+  %strong= @host.hostname 
+%p
+  = @host.macaddress
+  = @host.ipaddress
+%p
+  = link_to('Back to host list', hosts_path)
