@@ -3,6 +3,10 @@ class HostsController < ApplicationController
     @hosts = Host.all
   end
 
+  def show
+    @host = Host.find(params[:id])
+  end
+
   def new
     @host = Host.new()
   end
