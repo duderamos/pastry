@@ -1,7 +1,10 @@
+%h3= @host.hostname 
+
 %p
-  %strong= @host.hostname 
-%p
+  %strong MAC address - 
   = @host.macaddress
+  %br
+  %strong IP address - 
   = @host.ipaddress
 %p
   = link_to('Back to host list', hosts_path)
