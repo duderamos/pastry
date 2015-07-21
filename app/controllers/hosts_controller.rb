@@ -7,12 +7,27 @@ class HostsController < ApplicationController
     @host = Host.new()
   end
 
+  def edit
+    @host = Host.find(params[:id])
+  end
+
   def create
     @host = Host.new(host_params)
+
     if @host.save
       redirect_to @host
     else
       render 'new'
+    end
+  end
+
+  def update
+    @host = Host.find(params[:id])
+
+    if @host.update(host_params)
+      redirect_to @host
+    else
+      render 'edit'
     end
   end
 
