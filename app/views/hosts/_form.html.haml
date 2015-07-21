@@ -1,0 +1,19 @@
+= form_for @host do |f| 
+  - if @host.errors.any? 
+    = @host.errors.full_messages.each do |msg|
+      %p{ class: 'error_message'}= msg
+          
+  %p
+    = f.label :hostname
+    %br
+    = f.text_field :hostname
+  %p
+    = f.label :macaddress
+    %br
+    = f.text_field :macaddress
+  %p
+    = f.label :ipaddress
+    %br
+    = f.text_field :ipaddress
+  %p
+    = f.submit
