@@ -1,7 +1,8 @@
 = form_for @host do |f| 
   - if @host.errors.any? 
     = @host.errors.full_messages.each do |msg|
-      %p{ class: 'error_message'}= msg
+      %p
+        = msg
           
   %p
     = f.label :hostname
