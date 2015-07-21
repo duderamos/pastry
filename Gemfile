@@ -45,3 +45,4 @@ end
 
 gem 'haml'
 gem 'bootstrap-sass'
+gem 'jquery-inputmask-rails'
