@@ -1,10 +1,13 @@
 class HostsController < ApplicationController
   def index
-    @hosts = Host.all
   end
 
   def show
     @host = Host.find(params[:id])
+  end
+
+  def list
+    @hosts = Host.all
   end
 
   def new
@@ -39,7 +42,7 @@ class HostsController < ApplicationController
     @host = Host.find(params[:id])
     @host.destroy
 
-    redirect_to hosts_path
+    redirect_to hosts_list_path
   end
 
   private
