@@ -1,20 +1,22 @@
-= form_for @host do |f| 
-  - if @host.errors.any? 
-    = @host.errors.full_messages.each do |msg|
+=form_for @host, :html => { class: 'form-horizontal', role: 'form' } do |f|
+  -if @host.errors.any? 
+    =@host.errors.full_messages.each do |msg|
       %p
-        = msg
+        =msg
           
-  %p
-    = f.label :hostname
-    %br
-    = f.text_field :hostname
-  %p
-    = f.label :macaddress
-    %br
-    = f.text_field :macaddress
-  %p
-    = f.label :ipaddress
-    %br
-    = f.text_field :ipaddress
-  %p
-    = f.submit
+  .form-group
+    =f.label :hostname, class: 'control-label col-sm-2'
+    .col-sm-10
+      =f.text_field :hostname, class: 'form-control'
+  .form-group
+    =f.label :macaddress, class: 'control-label col-sm-2'
+    .col-sm-10
+      =f.text_field :macaddress, class: 'form-control'
+  .form-group
+    =f.label :ipaddress, class: 'control-label col-sm-2'
+    .col-sm-10
+      =f.text_field :ipaddress, class: 'form-control'
+  .form-grop
+    .col-sm-offset-2.cols-sm-10
+      =f.submit 'Save', class: 'btn btn-default'
+      =link_to 'Cancel', :back, { class: 'btn btn-default' }

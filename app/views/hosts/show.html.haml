@@ -1,10 +1,14 @@
-%h3= @host.hostname 
+%h3 Show
 
 %p
-  %strong MAC address - 
-  = @host.macaddress
-  %br
-  %strong IP address - 
-  = @host.ipaddress
+  The machine
+  %strong
+    =@host.hostname
+  has the
+  %strong
+    =@host.ipaddress
+  IP address configured on the NIC
+  %strong
+    =@host.macaddress
 %p
-  = link_to('Back to host list', hosts_path)
+  =link_to 'Back to host list', hosts_list_path

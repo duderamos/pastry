@@ -1,20 +1,6 @@
-%strong List of hosts
+.starter-template
+  %h1 Pastry - Network Hosts Control
 
-%p
-  =link_to 'New host', new_host_path
+%p{ class: 'lead' }
+  This is a simple app to keep a list of hosts of a network.
   
-%table{ :style => "min-width: 50%; font-family: monospace;" }
-  %tr
-    %th Hostname
-    %th MAC address
-    %th IP address
-    %th 
-  - @hosts.each do |host| 
-    %tr{ :class => cycle('odd','even') }
-      %td=host.hostname
-      %td{ :style => "text-align: center" }=host.macaddress
-      %td{ :style => "text-align: center" }=host.ipaddress
-      %td
-        = link_to('Show', host_path(host))
-        = link_to('Edit', edit_host_path(host))
-        = link_to('Delete', host_path(host), method: :delete, data: { confirm: 'Are you sure?' })
