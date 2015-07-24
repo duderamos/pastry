@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $(dirname $0)/..
+
+source /home/eduardo/.rvm/scripts/rvm
+
+bundle exec unicorn -c config/unicorn.rb -E development -D
