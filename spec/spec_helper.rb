@@ -8,7 +8,4 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.mock_with :rspec
   config.order = 'random'
-  #config.use_transactional_fixtures = true
-
-  #config.include Rails.application.routes.url_helpers
 end
