@@ -17,7 +17,7 @@ feature 'Register hosts' do
       visit new_host_path
     end
 
-    scenario 'empty hostname' do
+    scenario 'empty Hostname' do
       fill_in 'Hostname', with: ''
       fill_in 'Macaddress', with: '00:11:22:33:44:55'
       fill_in 'Ipaddress', with: '172.16.20.253'
@@ -26,7 +26,7 @@ feature 'Register hosts' do
       expect(page).to have_content('Hostname can\'t be blank')
     end
 
-    scenario 'empty macaddress' do
+    scenario 'empty Macaddress' do
       fill_in 'Hostname', with: 'symphony.duderamos.com'
       fill_in 'Macaddress', with: ''
       fill_in 'Ipaddress', with: '172.16.20.253'
@@ -35,7 +35,7 @@ feature 'Register hosts' do
       expect(page).to have_content('Macaddress can\'t be blank')
     end
 
-    scenario 'empty ipaddress' do
+    scenario 'empty Ipaddress' do
       fill_in 'Hostname', with: 'symphony.duderamos.com'
       fill_in 'Macaddress', with: '00:11:22:33:44:55'
       fill_in 'Ipaddress', with: ''
@@ -50,7 +50,17 @@ feature 'Register hosts' do
       fill_in 'Ipaddress', with: '172.16.20.253'
       click_button 'Save'
 
-      expect(page).to have_content('Macaddress is the wrong length')
+      expect(page).to have_content('Macaddress is not a valid MAC address')
     end
+
+    scenario 'invalid Ipaddress' do
+      fill_in 'Hostname', with: 'symphony.duderamos.com'
+      fill_in 'Macaddress', with: '00:22:33:44:55:66'
+      fill_in 'Ipaddress', with: '172.16.20'
+      click_button 'Save'
+
+      expect(page).to have_content('Ipaddress is not a valid IP address')
+    end
+
   end
 end
