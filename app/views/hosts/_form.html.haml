@@ -1,7 +1,7 @@
 =form_for @host, :html => { class: 'form-horizontal', role: 'form' } do |f|
   -if @host.errors.any? 
     -@host.errors.full_messages.each do |msg|
-      %p
+      %p{ class: 'alert alert-warning' }
         =msg
           
   .form-group
