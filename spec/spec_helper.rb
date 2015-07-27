@@ -8,4 +8,6 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.mock_with :rspec
   config.order = 'random'
+
+  config.include FactoryGirl::Syntax::Methods
 end
