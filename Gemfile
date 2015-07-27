@@ -17,6 +17,7 @@ gem 'unicorn'
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'spring'
   gem 'web-console', '~> 2.0'
