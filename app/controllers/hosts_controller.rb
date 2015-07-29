@@ -40,7 +40,7 @@ class HostsController < ApplicationController
     @host = Host.find(params[:id])
     @host.destroy
 
-    redirect_to hosts_list_path
+    redirect_to hosts_path
   end
 
   private
