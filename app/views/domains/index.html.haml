@@ -1,0 +1,12 @@
+%h3 Domains
+
+%table.table.table-striped.table-bordered.table-hover
+  %tr
+    %th Domain
+    %th
+  - @domains.each do |domain|
+    %tr{ class: cycle('odd', 'even') }
+      %td= domain.domain
+      %td
+        =link_to image_tag('edit.png', alt: 'Edit'), edit_domain_path(domain)
+        =link_to image_tag('delete.png', alt: 'Delete'), domain_path(domain), method: :delete, data: { confirm: 'Are you sure?' }
