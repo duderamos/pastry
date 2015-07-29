@@ -3,15 +3,17 @@
 %table{ class: 'table table-striped table-bordered table-hover' }
   %tr
     %th Hostname
+    %th Domain
     %th MAC address
     %th IP address
     %th 
   - @hosts.each do |host| 
     %tr{ class: cycle('odd','even') }
-      %td= host.hostname
-      %td= host.macaddress
-      %td= host.ipaddress
-      %td
-        =link_to image_tag('show.png', alt: 'Show'), host_path(host)
-        =link_to image_tag('edit.png', alt: 'Edit'), edit_host_path(host)
-        =link_to image_tag('delete.png', alt: 'Delete'), host_path(host), method: :delete, data: { confirm: 'Are you sure?' }
+    %td= host.hostname
+    %td= Domain.find(host.domains_id).domain
+    %td= host.macaddress
+    %td= host.ipaddress
+    %td
+      =link_to image_tag('show.png', alt: 'Show'), host_path(host)
+      =link_to image_tag('edit.png', alt: 'Edit'), edit_host_path(host)
+      =link_to image_tag('delete.png', alt: 'Delete'), host_path(host), method: :delete, data: { confirm: 'Are you sure?' }

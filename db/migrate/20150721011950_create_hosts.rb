@@ -5,6 +5,8 @@ class CreateHosts < ActiveRecord::Migration
       t.string :macaddress
       t.string :ipaddress
 
+      t.references :domains, index: true, foreign_key: true
+
       t.timestamps null: false
     end
     add_index :hosts, :hostname, :unique => true
