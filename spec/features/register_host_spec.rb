@@ -62,5 +62,14 @@ feature 'Register hosts' do
       expect(page).to have_content('Ipaddress is not a valid IP address')
     end
 
+    scenario 'invalid Ipaddress - greater than 255' do
+      fill_in 'Hostname', with: 'symphony.duderamos.com'
+      fill_in 'Macaddress', with: '00:22:33:44:55:66'
+      fill_in 'Ipaddress', with: '172.16.20.256'
+      click_button 'Save'
+
+      expect(page).to have_content('Ipaddress is not a valid IP address')
+    end
+
   end
 end
