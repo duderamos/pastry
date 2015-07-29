@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'hosts/index'
   get 'domains/index'
+  get 'home/index'
 
-  root 'domains#index'
+  root 'home#index'
 end
