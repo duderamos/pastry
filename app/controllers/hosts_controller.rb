@@ -11,6 +11,7 @@ class HostsController < ApplicationController
   end
 
   def new
+    redirect_to new_domain_path if !Domain.first
     @host = Host.new()
   end
 
