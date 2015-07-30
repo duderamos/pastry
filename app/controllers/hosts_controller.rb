@@ -45,6 +45,6 @@ class HostsController < ApplicationController
 
   private
     def host_params
-      params.require(:host).permit(:hostname, :macaddress, :ipaddress, :domains_id)
+      params.require(:host).permit(:hostname, :macaddress, :ipaddress, :domain_id)
     end
 end

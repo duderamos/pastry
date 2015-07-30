@@ -14,7 +14,7 @@
     - @hosts.each do |host|
       %tr{ class: cycle('odd','even') }
       %td= host.hostname
-      %td= Domain.find(host.domains_id).domain
+      %td= host.domain.name
       %td= host.macaddress
       %td= host.ipaddress
       %td

@@ -40,6 +40,6 @@ class DomainsController < ApplicationController
 
   private
     def domain_params
-        params.require(:domain).permit(:domain)
+        params.require(:domain).permit(:name)
     end
 end

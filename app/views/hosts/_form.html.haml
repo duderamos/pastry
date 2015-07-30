@@ -9,7 +9,7 @@
     .col-sm-5
       =f.text_field :hostname, class: 'form-control'
     .col-sm-5
-      =f.collection_select :domains_id, Domain.all, :id, :domain, {}, { class: 'form-control' }
+      =f.collection_select :domain_id, Domain.all, :id, :name, {}, { class: 'form-control' }
   .form-group
     =f.label :macaddress, class: 'control-label col-sm-2'
     .col-sm-10
