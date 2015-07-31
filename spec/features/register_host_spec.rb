@@ -2,14 +2,20 @@ require 'rails_helper'
 
 feature 'Register hosts' do
 
+  before do
+    visit new_domain_path
+    fill_in 'Name', with: 'duderamos.com'
+    click_button 'Save'
+  end
+
   scenario 'valid hosts' do
     visit new_host_path
-    fill_in 'Hostname', with: 'symphony.duderamos.com'
+    fill_in 'Hostname', with: 'symphony'
     fill_in 'Macaddress', with: '00:11:22:33:44:55'
     fill_in 'Ipaddress', with: '172.16.20.253'
     click_button 'Save'
 
-    expect(page).to have_content('The machine symphony.duderamos.com has the 172.16.20.253 IP address configured on the NIC 00:11:22:33:44:55')
+    expect(page).to have_content('The machine symphony has the 172.16.20.253 IP address configured on the NIC 00:11:22:33:44:55')
   end
 
   context 'with invalid data' do
@@ -27,7 +33,7 @@ feature 'Register hosts' do
     end
 
     scenario 'empty Macaddress' do
-      fill_in 'Hostname', with: 'symphony.duderamos.com'
+      fill_in 'Hostname', with: 'symphony'
       fill_in 'Macaddress', with: ''
       fill_in 'Ipaddress', with: '172.16.20.253'
       click_button 'Save'
@@ -36,7 +42,7 @@ feature 'Register hosts' do
     end
 
     scenario 'empty Ipaddress' do
-      fill_in 'Hostname', with: 'symphony.duderamos.com'
+      fill_in 'Hostname', with: 'symphony'
       fill_in 'Macaddress', with: '00:11:22:33:44:55'
       fill_in 'Ipaddress', with: ''
       click_button 'Save'
@@ -45,7 +51,7 @@ feature 'Register hosts' do
     end
 
     scenario 'invalid Macaddress' do
-      fill_in 'Hostname', with: 'symphony.duderamos.com'
+      fill_in 'Hostname', with: 'symphony'
       fill_in 'Macaddress', with: '00:22:33:44:55'
       fill_in 'Ipaddress', with: '172.16.20.253'
       click_button 'Save'
@@ -54,7 +60,7 @@ feature 'Register hosts' do
     end
 
     scenario 'invalid Ipaddress' do
-      fill_in 'Hostname', with: 'symphony.duderamos.com'
+      fill_in 'Hostname', with: 'symphony'
       fill_in 'Macaddress', with: '00:22:33:44:55:66'
       fill_in 'Ipaddress', with: '172.16.20'
       click_button 'Save'
@@ -63,7 +69,7 @@ feature 'Register hosts' do
     end
 
     scenario 'invalid Ipaddress - greater than 255' do
-      fill_in 'Hostname', with: 'symphony.duderamos.com'
+      fill_in 'Hostname', with: 'symphony'
       fill_in 'Macaddress', with: '00:22:33:44:55:66'
       fill_in 'Ipaddress', with: '172.16.20.256'
       click_button 'Save'
